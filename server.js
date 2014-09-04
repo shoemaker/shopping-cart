@@ -8,13 +8,17 @@ var cookieParser = require('cookie-parser');
 var routes = require('./routes');
 var c = require('./config').config;  // App configuration
 
+var hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials');
+
+
 /*
  * Init Express
  */
 var app = express();
 app.set('port', c.appPort || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'hbs');
 app.use(compress());
 app.use(bodyParser.json());
 app.use(cookieParser('foo'));

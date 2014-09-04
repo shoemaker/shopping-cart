@@ -1,4 +1,6 @@
+var fs = require('fs');
 var c = require('../config').config;  // App configuration
+
 
 /*
  * GET home page.
@@ -6,10 +8,17 @@ var c = require('../config').config;  // App configuration
 exports.index = function(req, res){
     var model = {
         debug : (req.query.debug) ? true : false,
-        title : 'Hello World!',
-        welcome : 'It worked! This page confirms that the site is ready.'
+        title : 'Book Inventory',
+        books : []
     };
 
-    res.render('index', model);
-    
+    fs.readFile(c.inventoryFile, 'utf8', function (err, data) {
+        if (err) {
+            console.error('Error: ' + err);
+        } else {
+            model.books = JSON.parse(data).books;
+        }
+
+        res.render('index', model);
+     });
 };

@@ -1,1 +1,10 @@
-console.log('Hello World!');
+/*global $:false */
+'use strict';
+
+$(document).ready(function () {
+    // Open all links in a new window.
+    $('a:not(.ignore)').attr('target', '_blank'); 
+
+    // Reset all quantities to 1
+    $('input').val(1);
+});    
