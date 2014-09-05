@@ -27,7 +27,10 @@ app.use(cookieParser('foo'));
  * Define routes.
  */
 app.use(c.appPath, express.static(path.join(__dirname, 'public')));
-app.get(c.appPath, routes.index);
+app.get(c.appPath, routes.index);  
+app.get(c.appPath + '/shop', routes.shop);  
+app.get(c.appPath + '/payment', routes.payment);  
+app.get(c.appPath + '/confirmation', routes.confirmation);  
 
 /*
  * Fire up the server. 

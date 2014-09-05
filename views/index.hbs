@@ -8,77 +8,30 @@
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8">
-                        <h1>{{title}}</h1>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#cartModal"><i class="fa fa-shopping-cart fa-2"></i>&nbsp;&nbsp;<span class="simpleCart_quantity"></span></button>
+                    <div class="col-sm-12"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Introduction</h1>
+                        <p>
+                            Wes Anderson Shoreditch swag ennui Truffaut scenester. Viral post-ironic Echo Park deep v trust fund, fashion axe Marfa fanny pack yr wolf twee blog letterpress polaroid selvage. Pop-up normcore mlkshk, typewriter kitsch Helvetica drinking vinegar Echo Park irony artisan viral hashtag jean shorts authentic. Keffiyeh authentic tattooed Portland squid. Tonx vinyl cray, +1 sriracha lomo Helvetica scenester polaroid four loko. Skateboard semiotics American Apparel Portland lo-fi, Vice hoodie Truffaut hashtag lomo try-hard dreamcatcher Echo Park normcore. Intelligentsia Wes Anderson asymmetrical, bicycle rights skateboard pork belly Austin literally XOXO normcore.
+                        </p>
+                        <p>
+                            Semiotics messenger bag direct trade Godard Carles. Retro twee Pinterest forage. Chillwave raw denim direct trade, biodiesel hashtag bespoke Carles. 8-bit keffiyeh fingerstache, viral 3 wolf moon fap selvage cardigan disrupt before they sold out forage yr asymmetrical leggings vinyl. Williamsburg banh mi meggings, farm-to-table chia beard next level pour-over four loko Carles single-origin coffee freegan polaroid. Viral ethnic craft beer Thundercats mixtape retro. Ethnic salvia High Life tattooed.
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        {{#books}}
-                        <div class="simpleCart_shelfItem">
-                            <div class="media">
-                                <a class="pull-left" href="{{amazonUrl}}">
-                                    <img class="media-object img-thumbnail" data-src="{{coverImageUrl}}" src="{{coverImageUrl}}" alt="{{title}}" />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="item_name media-heading book-title">{{title}}</h4>
-                                    <p>
-                                        By {{author}} <br />
-                                        <span class="item_price">${{price}}</span><br />
-                                        <input type="text" class="form-control item_Quantity" id="{{id}}Qty" value="1" />
-                                        <a class="item_add btn btn-success btn-sm ignore" href="javascript:;">Add to Cart</a>
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="pull-right">
+                            <a href="/shop" class="btn btn-primary btn-lg ignore">Start Shopping</a>
                         </div>
-                        {{/books}}
-                        <div style="clear:both"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Shopping Cart Modal -->
-        <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Shopping Cart</h4>
-                    </div>
-                    <div class="modal-body">
-                        <!-- show the cart -->
-                        <div class="simpleCart_items"></div>
-                        <br />
-                        Total: <span class="simpleCart_total"></span>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <!-- button to empty the cart -->
-                        <a href="javascript:;" class="simpleCart_empty btn btn-info ignore">Empty Cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         {{> footer}}
-        <script src="./library/simplecart-js/simpleCart.min.js"></script>
-        <script>
-            simpleCart({
-                cartColumns: [
-                    { attr: "name" , label: "Name" },
-                    { attr: "price" , label: "Price", view: 'currency' },
-                    { attr: "quantity" , label: "Qty" },
-                    { attr: "total" , label: "SubTotal", view: 'currency' },
-                    { view: "remove" , text: "Remove" , label: false },
-                    { view: "foo", text: "", label: false }
-                ]
-          });
-        </script>
 
         <script src="./js/script.min.js"></script>
     </body>

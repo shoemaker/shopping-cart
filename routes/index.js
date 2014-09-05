@@ -3,9 +3,21 @@ var c = require('../config').config;  // App configuration
 
 
 /*
- * GET home page.
+ * GET index/home page.
  */
-exports.index = function(req, res){
+exports.index = function(req, res) {
+    var model = {
+        debug : (req.query.debug) ? true : false,
+        title : 'Welcome'
+    };
+
+    res.render('index', model);
+};
+
+/*
+ * GET shopping page.
+ */
+exports.shop = function(req, res) {
     var model = {
         debug : (req.query.debug) ? true : false,
         title : 'Book Inventory',
@@ -19,6 +31,30 @@ exports.index = function(req, res){
             model.books = JSON.parse(data).books;
         }
 
-        res.render('index', model);
+        res.render('shop', model);
      });
+};
+
+/*
+ * GET payment page.
+ */
+exports.payment = function(req, res) {
+    var model = {
+        debug : (req.query.debug) ? true : false,
+        title : 'Payment'
+    };
+
+    res.render('payment', model);
+};
+
+/*
+ * GET confirmation page.
+ */
+exports.confirmation = function(req, res) {
+    var model = {
+        debug : (req.query.debug) ? true : false,
+        title : 'Confirmation'
+    };
+
+    res.render('confirmation', model);
 };

@@ -64,6 +64,14 @@
             "author" : "Laura Hillenbrand",
             "coverImageUrl" : "./img/unbroken.jpg",
             "amazonUrl" : "http://amzn.com/1400064163"
+        },
+        {
+            "id" : "book9",
+            "title" : "Practical Node.js",
+            "price" : "31.09",
+            "author" : "Azat Mardan",
+            "coverImageUrl" : "./img/practicalnodejs.jpg",
+            "amazonUrl" : "http://amzn.com/1430265957"
         }
     ]
 }

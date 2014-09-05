@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{> head}}
+    </head>
+    <body>
+        {{> debug}}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Payment</h1>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Your Cart</h3>
+                            </div>
+                            <div class="panel-body">
+                                <!-- show the cart -->
+                                <div class="simpleCart_items"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form action="/confirmation" method="POST" class="form-horizontal" role="form">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Billing Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputFirstName" placeholder="Bob" />
+                                        </div>
+                                        <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="inputLastName" placeholder="Smith" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAddress1" class="col-sm-2 control-label">Address 1</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputAddress1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAddress2" class="col-sm-2 control-label">Address 2</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputAddress2" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputCity" class="col-sm-2 control-label">City</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="inputCity" />
+                                        </div>
+                                        <label for="inputState" class="col-sm-1 control-label">State</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="inputState" />
+                                        </div>
+                                        <label for="inputZip" class="col-sm-1 control-label">Zip</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="inputZip" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Payment Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="inputCreditCard" class="col-sm-2 control-label">Card Number</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputCreditCard" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputExpiration" class="col-sm-2 control-label">Expiration</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="inputExpiration" placeholder="MM/YY" />
+                                        </div>
+                                        <label for="inputCCV" class="col-sm-2 control-label">CCV</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="inputCCV" />
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="/shop" class="btn btn-lg btn-primary ignore">Shop</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="pull-right">
+                            <a href="/confirmation" class="btn btn-lg btn-success ignore">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{> footer}}
+        <script src="./library/jquery-form-validator/form-validator/jquery.form-validator.min.js"></script>
+        <script src="./library/simplecart-js/simpleCart.min.js"></script>
+        <script>
+            simpleCart({
+                cartColumns: [
+                    { attr: "name" , label: "Name" },
+                    { attr: "price" , label: "Price", view: 'currency' },
+                    { attr: "quantity" , label: "Qty" },
+                    { attr: "total" , label: "SubTotal", view: 'currency' },
+                    { view: "foo", text: "", label: false }
+                ]
+          });
+        </script>
+        <script src="./js/script.min.js"></script>
+    </body>
+</html>
