@@ -16,7 +16,7 @@ hbs.registerPartials(__dirname + '/views/partials');
  * Init Express
  */
 var app = express();
-app.set('port', c.appPort || 3000);
+app.set('port', process.env.PORT || c.appPort);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(compress());
