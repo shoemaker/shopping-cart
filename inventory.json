@@ -6,7 +6,7 @@
             "title" : "Team of Rivals",
             "price" : "14.40",
             "author" : "Doris Kearns Goodwin",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1347278868l/2199.jpg",
+            "coverImageUrl" : "./img/teamofrivals.jpg",
             "amazonUrl" : "http://amzn.com/0743270754"
         },
         {
@@ -14,7 +14,7 @@
             "title" : "The Devil in the White City",
             "price" : "11.48",
             "author" : "Erik Larson",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1388184618l/259028.jpg",
+            "coverImageUrl" : "./img/devilinthewhitecity.jpg",
             "amazonUrl" : "http://amzn.com/0375725601"
         },
         {
@@ -22,7 +22,7 @@
             "title" : "Born to Run",
             "price" : "17.57",
             "author" : "Christopher McDougall",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1320531983l/6289283.jpg",
+            "coverImageUrl" : "./img/borntorun.jpg",
             "amazonUrl" : "http://amzn.com/0307266303"
         },
         {
@@ -30,7 +30,7 @@
             "title" : "The Martian",
             "price" : "15.16",
             "author" : "Andy Weir",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1377707689l/18007564.jpg",
+            "coverImageUrl" : "./img/themartian.jpg",
             "amazonUrl" : "http://amzn.com/0804139024"
         },
         {
@@ -38,7 +38,7 @@
             "title" : "Ready Player One",
             "price" : "16.70",
             "author" : "Ernest Cline",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1406383612l/9969571.jpg",
+            "coverImageUrl" : "./img/readyplayerone.jpg",
             "amazonUrl" : "http://amzn.com/030788743X"
         },
         {
@@ -46,7 +46,7 @@
             "title" : "Undaunted Courage",
             "price" : "11.56",
             "author" : "Stephen Ambrose",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1348614463l/103216.jpg",
+            "coverImageUrl" : "./img/undauntedcourage.jpg",
             "amazonUrl" : "http://amzn.com/0684826976"
         },
         {
@@ -54,7 +54,7 @@
             "title" : "Read This Before Our Next Meeting",
             "price" : "8.99",
             "author" : "Al Pittampalli",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1328349725l/11994353.jpg",
+            "coverImageUrl" : "./img/readthisbeforeournextmeeting.jpg",
             "amazonUrl" : "http://amzn.com/1936719169"
         },
         {
@@ -62,7 +62,7 @@
             "title" : "Unbroken",
             "price" : "15.50",
             "author" : "Laura Hillenbrand",
-            "coverImageUrl" : "https://d.gr-assets.com/books/1327861115l/8664353.jpg",
+            "coverImageUrl" : "./img/unbroken.jpg",
             "amazonUrl" : "http://amzn.com/1400064163"
         }
     ]

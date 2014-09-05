@@ -1,11 +1,12 @@
 {
   "name": "web-scaffold",
   "version": "0.0.1",
-  "description": "Bare-bones and reusable starting point for new web projects.",
+  "description": "Simple shopping cart sandbox for test automation projects.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha test/test.js -R spec"
+    "test": "mocha test/test.js -R spec",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,8 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-uglify": "^0.3.1",
     "mocha": "^1.21.3"
+  },
+  "engines": {
+    "node": "0.10.31"
   }
 }
