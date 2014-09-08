@@ -1,6 +1,10 @@
 # shopping-cart
 Bare-bones shopping cart, used for test automation sandbox. Forked from [web-scaffold](https://github.com/shoemaker/web-scaffold).
 
+
+[ ![Codeship Status for shoemaker/shopping-cart](https://www.codeship.io/projects/8642e760-19ba-0132-f737-1ab97f9d8d9d/status)](https://www.codeship.io/projects/34471)
+
+
 ## Getting Started 
 
     $> npm install 
