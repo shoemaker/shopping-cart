@@ -7,9 +7,7 @@
         {{> debug}}
         <section>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12"></div>
-                </div>
+                {{> header}}
                 <div class="row">
                     <div class="col-sm-12">
                         <h1>Payment</h1>
@@ -18,17 +16,26 @@
                                 <h3 class="panel-title">Your Cart</h3>
                             </div>
                             <div class="panel-body">
-                                <!-- show the cart -->
-                                <div class="simpleCart_items"></div>
+                                <div class="col-sm-8">
+                                    <!-- show the cart -->
+                                    <div class="simpleCart_items"></div>
+                                    <h4>Total: <span class="simpleCart_total"></span></h4>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a href="/shop" class="btn btn-lg btn-default ignore">Continue Shopping</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form action="/confirmation" method="POST" class="form-horizontal" role="form">
+                <p>
+                    Please provide your payment information in the form below. 
+                </p>
+                <form id="frmPayment" action="/confirmation" method="POST" class="form-horizontal" role="form">
+                    <div class="row">
+                        <div class="col-sm-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Billing Information</h3>
@@ -37,37 +44,37 @@
                                     <div class="form-group">
                                         <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputFirstName" placeholder="Bob" />
+                                            <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" placeholder="Bob" data-validation="required" />
                                         </div>
                                         <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="inputLastName" placeholder="Smith" />
+                                            <input type="text" class="form-control" id="inputLastName" name="inputLastName" placeholder="Smith" data-validation="required" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAddress1" class="col-sm-2 control-label">Address 1</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputAddress1" />
+                                            <input type="text" class="form-control" id="inputAddress1" name="inputAddress1" placeholder="123 Main St." data-validation="required" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputAddress2" class="col-sm-2 control-label">Address 2</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputAddress2" />
+                                            <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputCity" class="col-sm-2 control-label">City</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="inputCity" />
+                                            <input type="text" class="form-control" id="inputCity" name="inputCity" placeholder="Mayberry" data-validation="required" />
                                         </div>
                                         <label for="inputState" class="col-sm-1 control-label">State</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="inputState" />
+                                            <input type="text" class="form-control" id="inputState" name="inputState" data-validation="custom" placeholder="MN" data-validation-regexp="^([a-zA-Z]{2})$" />
                                         </div>
                                         <label for="inputZip" class="col-sm-1 control-label">Zip</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="inputZip" />
+                                            <input type="text" class="form-control" id="inputZip" name="inputZip" data-validation="custom" placeholder="12345" data-validation-regexp="^([0-9]{5})$" />
                                         </div>
                                     </div>
                                 </div>
@@ -80,55 +87,42 @@
                                     <div class="form-group">
                                         <label for="inputCreditCard" class="col-sm-2 control-label">Card Number</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputCreditCard" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                                            <input type="text" class="form-control" id="inputCreditCard" name="inputCreditCard" placeholder="XXXX-XXXX-XXXX-XXXX" data-validation="custom" data-validation-regexp="^((\d{4}[- ]){3}\d{4}|\d{16})$" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputExpiration" class="col-sm-2 control-label">Expiration</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="inputExpiration" placeholder="MM/YY" />
+                                            <input type="text" class="form-control" id="inputExpiration" name="inputExpiration" placeholder="MM/YY" data-validation="custom" data-validation-regexp="^((0[1-9])|(1[0-2]))[\/\.\-]*((0[8-9])|(1[1-9]))$" />
                                         </div>
                                         <label for="inputCCV" class="col-sm-2 control-label">CCV</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="inputCCV" />
+                                            <input type="text" class="form-control" id="inputCCV" name="inputCCV" placeholder="123" data-validation="custom" data-validation-regexp="^([0-9]{3,4})$" />
                                         </div>
                                         <div class="col-sm-4"></div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="/shop" class="btn btn-lg btn-primary ignore">Shop</a>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="pull-right">
-                            <a href="/confirmation" class="btn btn-lg btn-success ignore">Checkout</a>
+                            </div>                        
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="/shop" class="btn btn-lg btn-primary ignore">Shop</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pull-right">
+                                <input type="submit" id="btnComplete" class="btn btn-lg btn-success ignore" value="Complete Purchase" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </section>
 
         {{> footer}}
         <script src="./library/jquery-form-validator/form-validator/jquery.form-validator.min.js"></script>
         <script src="./library/simplecart-js/simpleCart.min.js"></script>
-        <script>
-            simpleCart({
-                cartColumns: [
-                    { attr: "name" , label: "Name" },
-                    { attr: "price" , label: "Price", view: 'currency' },
-                    { attr: "quantity" , label: "Qty" },
-                    { attr: "total" , label: "SubTotal", view: 'currency' },
-                    { view: "foo", text: "", label: false }
-                ]
-          });
-        </script>
         <script src="./js/script.min.js"></script>
+        <script src="./js/payment.min.js"></script>
     </body>
 </html>

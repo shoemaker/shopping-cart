@@ -2,30 +2,6 @@
     
     "books" : [
         {
-            "id" : "book1",
-            "title" : "Team of Rivals",
-            "price" : "14.40",
-            "author" : "Doris Kearns Goodwin",
-            "coverImageUrl" : "./img/teamofrivals.jpg",
-            "amazonUrl" : "http://amzn.com/0743270754"
-        },
-        {
-            "id" : "book2",
-            "title" : "The Devil in the White City",
-            "price" : "11.48",
-            "author" : "Erik Larson",
-            "coverImageUrl" : "./img/devilinthewhitecity.jpg",
-            "amazonUrl" : "http://amzn.com/0375725601"
-        },
-        {
-            "id" : "book3",
-            "title" : "Born to Run",
-            "price" : "17.57",
-            "author" : "Christopher McDougall",
-            "coverImageUrl" : "./img/borntorun.jpg",
-            "amazonUrl" : "http://amzn.com/0307266303"
-        },
-        {
             "id" : "book4",
             "title" : "The Martian",
             "price" : "15.16",
@@ -40,6 +16,30 @@
             "author" : "Ernest Cline",
             "coverImageUrl" : "./img/readyplayerone.jpg",
             "amazonUrl" : "http://amzn.com/030788743X"
+        },
+        {
+            "id" : "book3",
+            "title" : "Born to Run",
+            "price" : "17.57",
+            "author" : "Christopher McDougall",
+            "coverImageUrl" : "./img/borntorun.jpg",
+            "amazonUrl" : "http://amzn.com/0307266303"
+        },
+        {
+            "id" : "book1",
+            "title" : "Team of Rivals",
+            "price" : "14.40",
+            "author" : "Doris Kearns Goodwin",
+            "coverImageUrl" : "./img/teamofrivals.jpg",
+            "amazonUrl" : "http://amzn.com/0743270754"
+        },
+        {
+            "id" : "book2",
+            "title" : "The Devil in the White City",
+            "price" : "11.48",
+            "author" : "Erik Larson",
+            "coverImageUrl" : "./img/devilinthewhitecity.jpg",
+            "amazonUrl" : "http://amzn.com/0375725601"
         },
         {
             "id" : "book6",

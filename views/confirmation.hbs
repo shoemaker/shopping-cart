@@ -7,15 +7,50 @@
         {{> debug}}
         <section>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12"></div>
-                </div>
+                {{> header}}
                 <div class="row">
                     <div class="col-sm-12">
                         <h1>Confirmation</h1>
                         <p>
-
+                            Thank you for your purchase. A confirmation email will be sent to {{username}} shortly. 
                         </p>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Your Cart</h3>
+                            </div>
+                            <div class="panel-body">
+                                <!-- show the cart -->
+                                <div class="simpleCart_items"></div>
+                                <h4>Total: <span class="simpleCart_total"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Shipping Information</h4>
+                        {{#paymentDetails}}
+                            {{inputFirstName}} {{inputLastName}}<br />
+                            {{inputAddress1}}<br />
+                            {{#inputAddress2}}{{.}}<br/>{{/inputAddress2}}
+                            {{inputCity}}, {{inputState}} {{inputZip}}
+                        {{/paymentDetails}}
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>Billing Information</h4>
+                        {{#paymentDetails}}
+                            Credit Card: {{inputCreditCard}} <br />
+                            Expires: {{inputExpiration}}
+                        {{/paymentDetails}}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="/" class="btn btn-lg btn-default ignore">Start Over</a>
                     </div>
                 </div>
             </div>
@@ -23,6 +58,8 @@
 
         {{> footer}}
 
+        <script src="./library/simplecart-js/simpleCart.min.js"></script>
         <script src="./js/script.min.js"></script>
+        <script src="./js/confirmation.min.js"></script>
     </body>
 </html>

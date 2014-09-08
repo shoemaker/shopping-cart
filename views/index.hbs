@@ -7,12 +7,13 @@
         {{> debug}}
         <section>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12"></div>
-                </div>
+                {{> header}}
                 <div class="row">
                     <div class="col-sm-12">
                         <h1>Introduction</h1>
+                        <p>
+                            TO DO: Need some introductory / explaination text here. 
+                        </p>
                         <p>
                             Wes Anderson Shoreditch swag ennui Truffaut scenester. Viral post-ironic Echo Park deep v trust fund, fashion axe Marfa fanny pack yr wolf twee blog letterpress polaroid selvage. Pop-up normcore mlkshk, typewriter kitsch Helvetica drinking vinegar Echo Park irony artisan viral hashtag jean shorts authentic. Keffiyeh authentic tattooed Portland squid. Tonx vinyl cray, +1 sriracha lomo Helvetica scenester polaroid four loko. Skateboard semiotics American Apparel Portland lo-fi, Vice hoodie Truffaut hashtag lomo try-hard dreamcatcher Echo Park normcore. Intelligentsia Wes Anderson asymmetrical, bicycle rights skateboard pork belly Austin literally XOXO normcore.
                         </p>
@@ -24,7 +25,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="pull-right">
-                            <a href="/shop" class="btn btn-primary btn-lg ignore">Start Shopping</a>
+                            <a href="/login" class="btn btn-primary btn-lg ignore">Start Shopping</a>
                         </div>
                     </div>
                 </div>
@@ -33,6 +34,10 @@
 
         {{> footer}}
 
+        <script src="./library/simplecart-js/simpleCart.min.js"></script>
         <script src="./js/script.min.js"></script>
+        <script>
+            simpleCart.empty();
+        </script>
     </body>
 </html>

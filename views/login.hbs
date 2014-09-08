@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{> head}}
+    </head>
+    <body>
+        {{> debug}}
+        <section>
+            <div class="container">
+                {{> header}}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Login</h1>
+                        <form id="frmSignIn" class="form-horizontal" role="form" action="/shop" method="POST">
+                            <div class="form-group">
+                                <label for="txtEmail" class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="foo@bar.com" data-validation="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPassword" class="col-sm-2 control-label">Password</label>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control" name="txtPassword" id="txtPassword" placeholder="Password" data-validation="required" data-validation-error-msg="You did not enter a password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <input type="submit" id="btnSignIn" class="btn btn-primary btn-lg ignore" value="Sign In" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{> footer}}
+        <script src="./library/jquery-form-validator/form-validator/jquery.form-validator.min.js"></script>
+        <script src="./js/script.min.js"></script>
+        <script src="./js/login.min.js"></script>
+    </body>
+</html>

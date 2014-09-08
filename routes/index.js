@@ -14,15 +14,37 @@ exports.index = function(req, res) {
     res.render('index', model);
 };
 
+
+/*
+ * GET login page.
+ */
+exports.login = function(req, res) {
+    var model = {
+        debug : (req.query.debug) ? true : false,
+        title : 'Login'
+    };
+
+    res.render('login', model);
+};
+
+
 /*
  * GET shopping page.
  */
 exports.shop = function(req, res) {
     var model = {
         debug : (req.query.debug) ? true : false,
+        username : null,
         title : 'Book Inventory',
         books : []
     };
+
+    var sess = req.session;
+    if (req.body.txtEmail) {
+        sess.email = req.body.txtEmail;
+        model.username = req.body.txtEmail;
+    }
+    
 
     fs.readFile(c.inventoryFile, 'utf8', function (err, data) {
         if (err) {
@@ -39,8 +61,11 @@ exports.shop = function(req, res) {
  * GET payment page.
  */
 exports.payment = function(req, res) {
+    var sess = req.session;
+
     var model = {
         debug : (req.query.debug) ? true : false,
+        username : req.session.email,
         title : 'Payment'
     };
 
@@ -48,13 +73,23 @@ exports.payment = function(req, res) {
 };
 
 /*
- * GET confirmation page.
+ * POST confirmation page.
  */
 exports.confirmation = function(req, res) {
+    var sess = req.session;
+
     var model = {
         debug : (req.query.debug) ? true : false,
-        title : 'Confirmation'
+        username : req.session.email,
+        title : 'Confirmation',
+        paymentDetails : req.body
     };
+
+    if (!model.paymentDetails.inputAddress2 || model.paymentDetails.inputAddress2.length == 0) { 
+        model.paymentDetails.inputAddress2 = false;
+    }
+
+    model.paymentDetails.inputCreditCard = 'XXXX-XXXX-XXXX-' + req.body.inputCreditCard.substring(req.body.inputCreditCard.length - 4);
 
     res.render('confirmation', model);
 };
