@@ -1,5 +1,5 @@
 {
-  "name": "bloom-ta",
+  "name": "shopping-cart",
   "version": "0.0.1",
   "description": "Simple shopping cart sandbox for test automation projects.",
   "main": "server.js",

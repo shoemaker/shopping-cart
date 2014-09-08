@@ -1,5 +1,5 @@
-# web-scaffold
-Bare-bones and reusable starting point for new Node.js based web projects. 
+# shopping-cart
+Bare-bones shopping cart, used for test automation sandbox. Forked from [web-scaffold](https://github.com/shoemaker/web-scaffold).
 
 ## Getting Started 
 
@@ -11,7 +11,7 @@ Now open your browser to `http://localhost:3000`.
 
 ## Web 
 
-[Express](http://expressjs.com/) is used as the web framework. This project uses a typical MVC pattern. Views use the [EJS](https://github.com/visionmedia/ejs) templating engine. Until recently I preferred [hogan.js](http://twitter.github.io/hogan.js/) to render [mustache](http://mustache.github.io/) templates, but ran into too many problems with conflicting `{{ }}` syntax with [AngularJS](https://angularjs.org/). Using [LESS](http://lesscss.org/) to pre-process CSS. 
+[Express](http://expressjs.com/) is used as the web framework. This project uses a typical MVC pattern. Views use the Handlebars templating engine. Using [LESS](http://lesscss.org/) to pre-process CSS. 
 
 ## Tasks 
 Tasks are managed using [Gulp](http://gulpjs.com/). 
@@ -28,3 +28,7 @@ Two ways to kick off the tests:
     $> gulp test 
     $> npm test 
 
+## Dependencies
+
+[Simple Cart](http://simplecartjs.org/)  
+[jQuery Form Validator](http://formvalidator.net/)
