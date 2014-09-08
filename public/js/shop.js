@@ -15,7 +15,8 @@ $(document).ready(function () {
     });
 
     simpleCart.bind('afterAdd', function(item) {
-        $(".alert").alert('close');
+        console.log(item.get('name'), 'added.');
+        $('.alert').alert('close');
     });
 
     // Reset all quantities to 1
@@ -23,8 +24,9 @@ $(document).ready(function () {
 
     $('#checkoutMain, #checkoutModal').click(function () {
         if (simpleCart.quantity() === 0) {
-            $('#msgContainer').html('<div class="alert alert-danger" role="alert"><h4>Error</h4>You must have at least one item in your shopping cart to checkout.</div>');
+            $('#msgContainer').html('<div class="alert alert-danger" role="alert"><h4>Empty Shopping Cart</h4>You must have at least one item in your shopping cart to checkout.</div>');
             $('#cartModal').modal('hide');
+            $('html, body').animate({ scrollTop: 0 }, 500);
             return false;
         }
     });
