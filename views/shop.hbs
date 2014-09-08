@@ -20,6 +20,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
+                        <div id="msgContainer"></div>
                         {{#books}}
                         <div class="simpleCart_shelfItem">
                             <div class="media">
@@ -44,7 +45,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="pull-right">
-                            <a href="/payment" class="btn btn-success btn-lg ignore">Checkout</a>
+                            <a id="checkoutMain" href="/payment" class="btn btn-success btn-lg ignore">Checkout</a>
                         </div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@
                     <div class="modal-footer">
                         <!-- button to empty the cart -->
                         <a href="javascript:;" class="simpleCart_empty btn btn-default ignore">Empty Cart</a>
-                        <a href="/payment" class="btn btn-success ignore">Checkout</a>
+                        <a id="checkoutModal" href="/payment" class="btn btn-success ignore">Checkout</a>
                     </div>
                 </div>
             </div>
