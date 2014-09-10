@@ -26,7 +26,6 @@ app.use(session({
     return uuid.v4(); // use UUIDs for session IDs
   }
   , secret: uuid.v4()
-  , secret: 'keyboard cat'
   , resave : true
   , saveUninitialized : true
 }));
@@ -40,11 +39,34 @@ app.use(cookieParser('foo'));
  */
 app.use(c.appPath, express.static(path.join(__dirname, 'public')));
 app.get(c.appPath, routes.index);  
-app.get(c.appPath + '/login', routes.login);  
+app.get(c.appPath + '/login', routes.login);
+app.post(c.appPath + '/login', routes.auth);
+app.get(c.appPath + '/logout', routes.logout);
+
+app.all('*', function(req, res, next) {
+    if(req.session && req.session.credentialsHash) {
+        next();
+    } else {
+        next(new Error(401)); // 401 Not Authorized
+    }
+});
+
+app.use(function(err, req, res, next){
+    // Just basic, should be filled out to next() or respond on all possible code paths
+    if(err instanceof Error) {
+        if(err.message === '401'){
+            // Save where the user wanted to go.
+            req.session.targetUrl = req.originalUrl;
+            res.redirect('/login');
+        }
+    }
+});
+
 app.post(c.appPath + '/shop', routes.shop);
 app.get(c.appPath + '/shop', routes.shop);  
 app.get(c.appPath + '/payment', routes.payment);  
 app.post(c.appPath + '/confirmation', routes.confirmation);
+app.get(c.appPath + '/orders', routes.orders);
 
 /*
  * Fire up the server. 

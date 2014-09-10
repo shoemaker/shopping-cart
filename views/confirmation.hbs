@@ -12,7 +12,7 @@
                     <div class="col-sm-12">
                         <h1>Confirmation</h1>
                         <p>
-                            Thank you for your purchase. A confirmation email will be sent to {{username}} shortly. 
+                            Thank you for your purchase. A confirmation email will be sent to {{summary.email}} shortly. 
                         </p>
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -29,19 +29,19 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>Shipping Information</h4>
-                        {{#paymentDetails}}
-                            {{inputFirstName}} {{inputLastName}}<br />
-                            {{inputAddress1}}<br />
-                            {{#inputAddress2}}{{.}}<br/>{{/inputAddress2}}
-                            {{inputCity}}, {{inputState}} {{inputZip}}
-                        {{/paymentDetails}}
+                        {{#summary.address}}
+                            {{name.first}} {{name.last}}<br />
+                            {{street1}}<br />
+                            {{#street2}}{{.}}<br/>{{/street2}}
+                            {{city}}, {{state}} {{zip}}
+                        {{/summary.address}}
                     </div>
                     <div class="col-sm-6">
                         <h4>Billing Information</h4>
-                        {{#paymentDetails}}
-                            Credit Card: {{inputCreditCard}} <br />
-                            Expires: {{inputExpiration}}
-                        {{/paymentDetails}}
+                        {{#summary.payment}}
+                            Credit Card: {{creditCard.number}} <br />
+                            Expires: {{creditCard.expiration}}
+                        {{/summary.payment}}
                     </div>
                 </div>
             </div>
@@ -50,6 +50,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
+                        <a href="/orders" class="btn btn-lg btn-default ignore">Your Orders</a>
                         <a href="/" class="btn btn-lg btn-default ignore">Start Over</a>
                     </div>
                 </div>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{> head}}
+    </head>
+    <body>
+        {{> debug}}
+        <section>
+            <div class="container">
+                {{> header}}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Your Orders <small>&nbsp;previous 10</small></h1>
+                    </div>
+                </div>
+
+                {{#orders}}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{purchaseDateDisplay}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3>Cart</h3>
+                                        <!-- show the cart -->
+                                        <div class="order_items">
+                                            <div>
+                                                <div class="headerRow">
+                                                    <div class="item-name">Name</div>
+                                                    <div class="item-price">Price</div>
+                                                    <div class="item-quantity">Qty</div>
+                                                    <div class="item-total">SubTotal</div>
+                                                    <div class="item-foo"></div>
+                                                </div>
+                                            </div>
+                                            {{#items}}
+                                            <div id="cartItem_SCI-1" class="itemRow row-0 odd">
+                                                <div class="item-name">{{name}}</div>
+                                                <div class="item-price">{{price}}</div>
+                                                <div class="item-quantity">{{quantity}}</div>
+                                                <div class="item-total">{{subTotal}}</div>
+                                                <div class="item-foo"></div>
+                                            </div>
+                                            {{/items}}
+                                        </div>
+                                        <h4>Total: {{total}}</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h3>Shipping Information</h3>
+                                        {{#address}}
+                                            {{name.first}} {{name.last}}<br />
+                                            {{street1}}<br />
+                                            {{#street2}}{{.}}<br/>{{/street2}}
+                                            {{city}}, {{state}} {{zip}}
+                                        {{/address}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h3>Billing Information</h3>
+                                        {{#payment}}
+                                            Credit Card: {{creditCard.number}} <br />
+                                            Expires: {{creditCard.expiration}}
+                                        {{/payment}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/orders}}
+                
+                {{^orders}}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2>No orders found.</h2>
+                        </div>
+                    </div>
+                {{/orders}}
+
+                <a href="/shop" class="btn btn-lg btn-default ignore">Shop</a>
+            </div>
+        </section>
+
+        {{> footer}}
+
+        <script src="./library/simplecart-js/simpleCart.min.js"></script>
+        <script src="./js/script.min.js"></script>
+        <script>
+            simpleCart.empty();
+        </script>
+    </body>
+</html>
