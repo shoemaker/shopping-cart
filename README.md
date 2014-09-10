@@ -24,11 +24,6 @@ Tasks are managed using [Gulp](http://gulpjs.com/).
 `$> gulp build` Build out just the files needed for deployment, copies to the `dist` folder.  
 `$> gulp test` Run tests defined in the `test` folder.  
 
-## DB
-
-    $> mongo ds043957.mongolab.com:43957/bloom-sandbox -u <dbuser> -p <dbpassword>
-
-
 ## Tests 
 
 A few mock tests are defined in the `test` folder using [mocha](http://visionmedia.github.io/mocha/) and [expect.js](https://github.com/LearnBoost/expect.js).  
