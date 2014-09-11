@@ -114,12 +114,18 @@ exports.confirmation = function(req, res) {
     var model = {
         debug : (req.query.debug) ? true : false,
         title : 'Confirmation',
-        summary : {}
+        username : req.session.email,
+        summary : {},
+        orders : []
     };
 
     var cart = mapCart(sess, req.body);
     model.summary = cart;
-    
+
+    var orders = [];
+    orders.push(cart)
+    model.orders = massageOrders(orders);
+
     MongoClient.connect(buildMongoUrl(), function(err, db) {
         if(err) throw err;
 
@@ -138,13 +144,12 @@ exports.confirmation = function(req, res) {
  */
 exports.orders = function(req, res) {
     var sess = req.session;
-    var CURRENCY_FORMAT = '$0,0.00';
 
     var model = {
         debug : (req.query.debug) ? true : false,
         title : 'Orders',
         username : req.session.email,
-        orders : {}
+        orders : []
     };
 
     MongoClient.connect(buildMongoUrl(), function(err, db) {
@@ -156,20 +161,7 @@ exports.orders = function(req, res) {
             .find(query)
             .limit(10)
             .toArray(function(err, orders) {
-                _.each(orders, function(order) {
-                    order.total = 0;
-
-                    _.each(order.items, function(item) {
-                        item.subTotal = item.price * item.quantity;
-                        order.total += item.subTotal;
-                        item.price = numeral(item.price).format(CURRENCY_FORMAT);
-                        item.subTotal = numeral(item.subTotal).format(CURRENCY_FORMAT);                        
-                    });                    
-
-                    order.total = numeral(order.total).format(CURRENCY_FORMAT);
-                });
-
-                model.orders = orders;
+                model.orders = massageOrders(orders);
                 res.render('orders', model);
                 db.close();
             });
@@ -204,6 +196,28 @@ exports.orders = function(req, res) {
 
     return cart;
  }
+
+/*
+ * Add calculations to an array of orders.
+ */
+function massageOrders(orders) {
+    var CURRENCY_FORMAT = '$0,0.00';
+    
+    _.each(orders, function(order) {
+        order.total = 0;
+
+        _.each(order.items, function(item) {
+            item.subTotal = item.price * item.quantity;
+            order.total += item.subTotal;
+            item.price = numeral(item.price).format(CURRENCY_FORMAT);
+            item.subTotal = numeral(item.subTotal).format(CURRENCY_FORMAT);                        
+        });                    
+
+        order.total = numeral(order.total).format(CURRENCY_FORMAT);
+    });
+
+    return orders;
+}
 
 /*
  * Build up the URL string to connect to the MongoDB instance. 

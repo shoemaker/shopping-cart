@@ -26,27 +26,7 @@
                                     <div class="col-sm-12">
                                         <h3>Cart</h3>
                                         <!-- show the cart -->
-                                        <div class="order_items">
-                                            <div>
-                                                <div class="headerRow">
-                                                    <div class="item-name">Name</div>
-                                                    <div class="item-price">Price</div>
-                                                    <div class="item-quantity">Qty</div>
-                                                    <div class="item-total">SubTotal</div>
-                                                    <div class="item-foo"></div>
-                                                </div>
-                                            </div>
-                                            {{#items}}
-                                            <div id="cartItem_SCI-1" class="itemRow row-0 odd">
-                                                <div class="item-name">{{name}}</div>
-                                                <div class="item-price">{{price}}</div>
-                                                <div class="item-quantity">{{quantity}}</div>
-                                                <div class="item-total">{{subTotal}}</div>
-                                                <div class="item-foo"></div>
-                                            </div>
-                                            {{/items}}
-                                        </div>
-                                        <h4>Total: {{total}}</h4>
+                                        {{> shoppingCart}}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -86,11 +66,7 @@
         </section>
 
         {{> footer}}
-
-        <script src="./library/simplecart-js/simpleCart.min.js"></script>
+        
         <script src="./js/script.min.js"></script>
-        <script>
-            simpleCart.empty();
-        </script>
     </body>
 </html>

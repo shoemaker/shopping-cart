@@ -43,6 +43,10 @@ app.get(c.appPath + '/login', routes.login);
 app.post(c.appPath + '/login', routes.auth);
 app.get(c.appPath + '/logout', routes.logout);
 
+/* -----------------------------------------------------------
+ * Everything above this line does not require authentication. 
+ */
+
 app.all('*', function(req, res, next) {
     if(req.session && req.session.credentialsHash) {
         next();
@@ -62,11 +66,16 @@ app.use(function(err, req, res, next){
     }
 });
 
+/* -----------------------------------------------------------
+ * Everything below this line requires authentication. 
+ */
+
 app.post(c.appPath + '/shop', routes.shop);
 app.get(c.appPath + '/shop', routes.shop);  
 app.get(c.appPath + '/payment', routes.payment);  
 app.post(c.appPath + '/confirmation', routes.confirmation);
 app.get(c.appPath + '/orders', routes.orders);
+
 
 /*
  * Fire up the server. 

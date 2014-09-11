@@ -1,0 +1,21 @@
+<div class="order_items">
+    <div>
+        <div class="headerRow">
+            <div class="item-name">Name</div>
+            <div class="item-price">Price</div>
+            <div class="item-quantity">Qty</div>
+            <div class="item-total">SubTotal</div>
+            <div class="item-foo"></div>
+        </div>
+    </div>
+    {{#items}}
+    <div class="itemRow">
+        <div class="item-name">{{name}}</div>
+        <div class="item-price">{{price}}</div>
+        <div class="item-quantity">{{quantity}}</div>
+        <div class="item-total">{{subTotal}}</div>
+        <div class="item-foo"></div>
+    </div>
+    {{/items}}
+</div>
+<h4>Total: {{total}}</h4>

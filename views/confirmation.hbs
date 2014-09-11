@@ -20,8 +20,9 @@
                             </div>
                             <div class="panel-body">
                                 <!-- show the cart -->
-                                <div class="simpleCart_items"></div>
-                                <h4>Total: <span class="simpleCart_total"></span></h4>
+                                {{#orders}}
+                                    {{> shoppingCart}}
+                                {{/orders}}
                             </div>
                         </div>
                     </div>
@@ -62,5 +63,8 @@
         <script src="./library/simplecart-js/simpleCart.min.js"></script>
         <script src="./js/script.min.js"></script>
         <script src="./js/confirmation.min.js"></script>
+        <script>
+            simpleCart.empty();
+        </script>
     </body>
 </html>
