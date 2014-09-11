@@ -70,7 +70,11 @@
                                         </div>
                                         <label for="inputState" class="col-sm-1 control-label">State</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" id="inputState" name="inputState" data-validation="custom" placeholder="MN" data-validation-regexp="^([a-zA-Z]{2})$" />
+                                            <select id="selectState" name="selectState" class="form-control">
+                                                {{#states}}
+                                                    <option value="{{abbreviation}}"{{#selected}}selected="true"{{/selected}}>{{name}}</option>
+                                                {{/states}}
+                                            </select>
                                         </div>
                                         <label for="inputZip" class="col-sm-1 control-label">Zip</label>
                                         <div class="col-sm-3">

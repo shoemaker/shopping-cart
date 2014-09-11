@@ -90,10 +90,19 @@ exports.payment = function(req, res) {
     var model = {
         debug : (req.query.debug) ? true : false,
         username : req.session.email,
-        title : 'Payment'
+        title : 'Payment',
+        states : []
     };
 
-    res.render('payment', model);
+    fs.readFile(c.statesFile, 'utf8', function (err, data) {
+        if (err) {
+            console.error('Error: ' + err);
+        } else {
+            model.states = JSON.parse(data);
+        }
+
+        res.render('payment', model);
+     });
 };
 
 /*
@@ -187,7 +196,7 @@ exports.orders = function(req, res) {
     }
 
     cart.address.city = formBody.inputCity;
-    cart.address.state = formBody.inputState;
+    cart.address.state = formBody.selectState;
     cart.address.zip = formBody.inputZip;
     cart.payment.creditCard.number = 'XXXX-XXXX-XXXX-' + formBody.inputCreditCard.substring(formBody.inputCreditCard.length - 4);
     cart.payment.creditCard.expiration = formBody.inputExpiration;

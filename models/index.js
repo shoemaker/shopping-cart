@@ -3,6 +3,7 @@ exports.shoppingCart = function() {
         credentialsHash: null,
         email: null,
         purchaseDate: null,
+        purchaseDateDisplay: null,
         items: [
 
         ],
