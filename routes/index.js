@@ -162,6 +162,7 @@ exports.orders = function(req, res) {
             .collection(c.db.collection)
             .find(query)
             .limit(10)
+            .sort({ purchaseDate: -1 })  // purchaseDate is a unix timestamp. 
             .toArray(function(err, orders) {
                 model.orders = massageOrders(orders);
                 res.render('orders', model);
