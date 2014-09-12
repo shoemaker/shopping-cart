@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var express = require('express');  
 var session = require('express-session')
+var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var cookieParser = require('cookie-parser');
@@ -21,6 +22,7 @@ var app = express();
 app.set('port', process.env.PORT || c.appPort);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(session({
   genid: function(req) {
     return uuid.v4(); // use UUIDs for session IDs
