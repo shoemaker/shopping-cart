@@ -119,16 +119,17 @@ exports.confirmation = function(req, res) {
         orders : []
     };
 
-    var cart = mapCart(sess, req.body);
-    model.summary = cart;
+    var cart = mapCart(sess, req.body);  // Pull together the shopping cart form. 
+    model.summary = cart;  // Use the cart in the model to display a summary of the purchase. 
 
+    // Craft an order from the shopping cart. 
     var orders = [];
-    orders.push(cart)
-    model.orders = massageOrders(orders);
+    orders.push(_.clone(cart, true));
+    model.orders = massageOrders(orders);  // Using a partial to display the shopping cart, add to the model. 
 
+    // Save the order to the database. 
     MongoClient.connect(buildMongoUrl(), function(err, db) {
         if(err) throw err;
-
         var collection = db.collection(c.db.collection);
         collection.insert(cart, function(err, docs) {
             db.close();
@@ -152,6 +153,7 @@ exports.orders = function(req, res) {
         orders : []
     };
 
+    // Retrieve the last X orders for this user. 
     MongoClient.connect(buildMongoUrl(), function(err, db) {
         if(err) throw err;
 
@@ -167,6 +169,10 @@ exports.orders = function(req, res) {
             });
     });
 }
+
+/**************************************
+ * Helper Functions
+ **************************************/
 
 /*
  * Map the form/data to a common model. 
