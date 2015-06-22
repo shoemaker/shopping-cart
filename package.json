@@ -1,6 +1,6 @@
 {
   "name": "shopping-cart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple shopping cart sandbox for test automation projects.",
   "main": "server.js",
   "scripts": {
@@ -51,6 +51,6 @@
     "mocha": "^2.2.5"
   },
   "engines": {
-    "node": "0.10.31"
+    "node": "0.12.4"
   }
 }
