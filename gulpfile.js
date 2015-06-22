@@ -7,7 +7,7 @@ var _ = require('lodash'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
-    rimraf = require('gulp-rimraf'),
+    del = require('del'),
     mocha = require('gulp-mocha');
 var nodemon = require('gulp-nodemon');
 var pkg = require('./package.json'),
@@ -34,8 +34,8 @@ var sources = {
 };
 
 var targets = {
-    tmp: '.tmp/**/*', 
-    dist: 'dist/**/*'
+    tmp: '.tmp/', 
+    dist: 'dist/'
 };
 
 
@@ -43,9 +43,8 @@ var targets = {
  * $ gulp prepare
  * Deletes the build/dist directories
  */
-gulp.task('prepare', function() {
-    return gulp.src('_.values(targets)', {read:false})
-        .pipe(rimraf());
+gulp.task('prepare', function (cb) {
+    del(_.values(targets), cb);
 });
 
 
@@ -102,7 +101,7 @@ gulp.task('images', ['prepare'], function() {
  * $ gulp copy
  * Copy all other files to dist directly.
  */
-gulp.task('copy', function() {
+gulp.task('copy', ['prepare'], function() {
     // Copy views
     gulp.src(sources.views, {cwd: bases.app})
         .pipe(gulp.dest(bases.dist + 'views'));
