@@ -26,7 +26,7 @@ Tasks are managed using [Gulp](http://gulpjs.com/).
 
 ## Tests 
 
-A few mock tests are defined in the `test` folder using [mocha](http://visionmedia.github.io/mocha/) and [expect.js](https://github.com/LearnBoost/expect.js).  
+A few mock tests are defined in the `test` folder using [mocha](http://mochajs.org/) and [expect.js](https://github.com/LearnBoost/expect.js).  
 Two ways to kick off the tests:  
 
     $> gulp test 
